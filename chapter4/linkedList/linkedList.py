@@ -36,8 +36,9 @@ class LinkedList:
     def remove(self, index):
         if index < 1 or self.head.next is None:
             item = self.head.data
+            if self.head.next is None:
+                self.tail = None
             self.head = self.head.next
-            self.tail = None
         else:
             cursor = self.head
             while index > 1 and cursor.next is not None:
