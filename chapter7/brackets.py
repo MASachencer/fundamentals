@@ -1,8 +1,8 @@
-from listStack import Stack
+from stack.listStack import ListStack
 
 
 def bracketsBalance(exp):
-    s = Stack()
+    s = ListStack()
     for ch in exp:
         if ch in ('{', '[', '('):
             s.push(ch)

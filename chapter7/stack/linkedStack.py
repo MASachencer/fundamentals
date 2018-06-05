@@ -4,7 +4,7 @@ class Node:
         self.next = None
 
 
-class Stack:
+class LinkedStack:
     def __init__(self):
         self.top = None
 
