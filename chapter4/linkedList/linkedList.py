@@ -1,4 +1,4 @@
-from listNode import ListNode
+from linkedNode import LinkedNode
 
 
 class LinkedList:
@@ -10,7 +10,7 @@ class LinkedList:
         return self._size == 0
 
     def append(self, item):
-        temp = ListNode(item)
+        temp = LinkedNode(item)
         if self.head is None:
             self.head = temp
             self.tail = temp
@@ -19,7 +19,7 @@ class LinkedList:
             self.tail = temp
 
     def insert(self, index, item):
-        temp = ListNode(item)
+        temp = LinkedNode(item)
         if self.head is None or index < 1:
             temp.next = self.head
             self.head = temp

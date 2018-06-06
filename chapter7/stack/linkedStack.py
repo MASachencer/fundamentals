@@ -1,4 +1,4 @@
-class Node:
+class LinkedNode:
     def __init__(self, data):
         self.data = data
         self.next = None
@@ -12,7 +12,7 @@ class LinkedStack:
         return self.top is None
 
     def push(self, value):
-        node = Node(value)
+        node = LinkedNode(value)
         node.next = self.top
         self.top = node
 

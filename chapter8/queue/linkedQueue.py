@@ -1,4 +1,4 @@
-class Node:
+class LinkedNode:
     def __init__(self, data):
         self.data = data
         self.next = None
@@ -13,7 +13,7 @@ class LinkedQueue:
         return self.front is None
 
     def enqueue(self, item):
-        node = Node(item)
+        node = LinkedNode(item)
         if self.front is None:
             self.front = node
             self.rear = node

@@ -1,4 +1,4 @@
-from listNode import ListNode
+from linkedNode import LinkedNode
 
 
 class LinkedBag:
@@ -16,7 +16,7 @@ class LinkedBag:
             cursor = cursor.next
 
     def add(self, item):
-        self._items = ListNode(item, self._items)
+        self._items = LinkedNode(item, self._items)
         self._size += 1
 
     def isEmpty(self):

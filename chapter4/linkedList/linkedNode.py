@@ -1,4 +1,4 @@
-class ListNode:
+class LinkedNode:
     def __init__(self, data, next=None):
         self.data = data
         self.next = next
@@ -17,21 +17,21 @@ class ListNode:
 
 
 node1 = None
-node2 = ListNode('A', None)
-node3 = ListNode('B', node2)
-node1 = ListNode('C', node3)
-node1 = ListNode('C', None)
+node2 = LinkedNode('A', None)
+node3 = LinkedNode('B', node2)
+node1 = LinkedNode('C', node3)
+node1 = LinkedNode('C', None)
 node1.next = node3
 head0 = node1
 
 head1 = None
 for count in range(1, 6):
-    head1 = ListNode(count, head1)
+    head1 = LinkedNode(count, head1)
 
 lyst = [1, 2, 3, 4, 5]
 head2 = None
 for count in lyst[::-1]:
-    head2 = ListNode(count, head2)
+    head2 = LinkedNode(count, head2)
 
 
 def iter(head):
@@ -82,7 +82,7 @@ def replace_index(head, index, new):
 
 
 def insert_head(head, item):
-    head = ListNode(item, head)
+    head = LinkedNode(item, head)
 
 
 def insert_tail(head, item):
@@ -118,13 +118,13 @@ def remove_tail(head):
 
 def insert(head, index, item):
     if head is None or index < 1:
-        head = ListNode(item, head)
+        head = LinkedNode(item, head)
     else:
         probe = head
         while index > 1 and probe.next is not None:
             probe = probe.next
             index -= 1
-    probe.next = ListNode(item, probe.next)
+    probe.next = LinkedNode(item, probe.next)
 
 
 def remove(head, index):
