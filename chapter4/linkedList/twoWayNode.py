@@ -1,12 +1,9 @@
-class Node:
-    def __init__(self, data, next=None):
-        self.data = data
-        self.next = next
+from linkedNode import LinkedNode
 
 
-class TwoWayNode(Node):
+class TwoWayNode(LinkedNode):
     def __init__(self, data, previous=None, next=None):
-        Node.__init__(self, data, next)
+        LinkedNode.__init__(self, data, next)
         self.previous = previous
 
 
