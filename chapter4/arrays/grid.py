@@ -1,4 +1,4 @@
-from array import Array
+from .array import Array
 
 
 class Grid:
@@ -10,7 +10,7 @@ class Grid:
     def get_height(self):
         return len(self._data)
 
-    def get_width(self):
+    def get_width(self)
         return len(self._data[0])
 
     def __getitem__(self, index):

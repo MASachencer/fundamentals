@@ -1,4 +1,4 @@
-from stack.listStack import ListStack
+from .stack.listStack import ListStack
 
 
 def bracketsBalance(exp):

@@ -1,5 +1,5 @@
-from linkedQueue import LinkedNode
-from linkedQueue import LinkedQueue
+from .linkedQueue import LinkedNode
+from .linkedQueue import LinkedQueue
 
 
 class PriorityNode(LinkedNode):
