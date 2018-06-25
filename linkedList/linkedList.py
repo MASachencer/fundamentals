@@ -43,6 +43,11 @@ class LinkedList:
             index += 1
         return -1
 
+    def clear(self):
+        self.head = None
+        self.tail = None
+        self._size = 0
+
     def append(self, item):
         temp = Node(item)
         if self.head is None:
@@ -53,62 +58,84 @@ class LinkedList:
             self.tail = temp
         self._size += 1
 
-    def insert(self, index, item):
+    def append_head(self, item):
         temp = Node(item)
-        if self.head is None or index >= self._size:
-            self.append(item)
-        elif index == 0:
-            temp.next = self.head
-            self.head = temp
-            self._size += 1
-        elif 0 < index < self._size:
-            count = 0
-            for node in self.iter_node():
-                if count == index-1:
-                    temp.next = node.next
-                    node.next = temp
-                count += 1
-            self._size += 1
-        else:
-            raise Exception()
-        if temp.next is None:
+        temp.next = self.head
+        self.head = temp
+        if self.head.next is None:
             self.tail = temp
+        self._size += 1
 
-    def remove(self, item):
-        if self.find(item) == 1:
-            for node in self.iter_node():
-                if node.next.value == item:
-                    node.next = node.next.next
-                    if node.next is None:
-                        self.tail = node
-                    self._size -= 1
-                    return 1
-            else:
-                return -1
-
-    def pop(self, index):
-        if index == 0:
+    def pop_head(self):
+        if self._size > 0:
             temp = self.head
             self.head = self.head.next
             if self.head is None:
                 self.tail = None
             self._size -= 1
             return temp.value
-        elif 0 < index < self._size:
-            count = 0
-            for node in self.iter_node():
-                if count == index - 1:
-                    temp = node.next
-                    node.next = node.next.next
-                    if node.next is None:
-                        self.tail = node
-                    self._size -= 1
-                    return temp.value
-                count += 1
         else:
             raise Exception()
 
-    def clear(self):
-        self.head = None
-        self.tail = None
-        self._size = 0
+    def pop_tail(self):
+        if self._size > 0:
+            count = 0
+            for node in self.iter_node():
+                if count == self._size - 2:
+                    temp = node.next
+                    node.next = None
+                    self.tail = node
+                    self._size -= 1
+                    return temp.value
+        else:
+            raise Exception()
+
+    def remove(self, item):
+        if self.find(item) == 1:
+            if self.head.value == item:
+                temp = self.pop_head()
+            elif self.tail.value == item:
+                temp = self.pop_tail()
+            else:
+                for node in self.iter_node():
+                    if node.next.value == item:
+                        node.next = node.next.next
+                        self._size -= 1
+                        return 1
+        else:
+            return -1
+
+    # def insert(self, index, item):
+    #     if self.head is None or index >= self._size:
+    #         self.append(item)
+    #     elif index < 1:
+    #         self.append_head(item)
+    #     else:
+    #         count = 0
+    #         temp = Node(item)
+    #         for node in self.iter_node():
+    #             if count == index - 1:
+    #                 temp.next = node.next
+    #                 node.next = temp
+    #                 if temp.next is None:
+    #                     self.tail = temp
+    #                 self._size += 1
+    #                 break
+    #             count += 1
+
+    # def pop(self, index):
+    #     if index < 1:
+    #         self.pop_head()
+    #     elif index >= self._size:
+    #         self.pop_tail()
+    #     else:
+    #         count = 0
+    #         for node in self.iter_node():
+    #             if count == index - 1:
+    #                 temp = node.next
+    #                 node.next = node.next.next
+    #                 if node.next is None:
+    #                     self.tail = node
+    #                 self._size -= 1
+    #                 return temp.value
+    #             count += 1
