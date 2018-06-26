@@ -29,7 +29,7 @@ class LinkedList:
         for node in self.iter_node():
             yield node.value 
 
-    def index(self, index):
+    def __getitem__(self, index):
         count = 0
         for item in self:
             if count == index:
