@@ -53,7 +53,7 @@ class DoubleLinkedList(LinkedList):
         return temp.value
 
     def remove(self, item):
-        if self.find(item) == 1:
+        if item in self:
             if self.head.value == item:
                 temp = self.pop_head()
             elif self.tail.value == item:

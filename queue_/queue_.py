@@ -1,5 +1,5 @@
-from ..arrays.array import Array
-from ..linkedList.linkedList import LinkedList
+from array import Array
+from linkedList import LinkedList
 
 
 class ArrayQueue:

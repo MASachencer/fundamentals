@@ -1,28 +1,28 @@
 def bubble_sort(lyst):
-    length = len(lyst) - 1
-    while length > 0:
-        item = 0
-        while item < length:
-            if lyst[item] > lyst[item + 1]:
-                lyst[item], lyst[item + 1] = lyst[item + 1], lyst[item]
-            item += 1
-        length -= 1
+    rear = len(lyst) - 1
+    while rear > 0:
+        front = 0
+        while front < rear:
+            if lyst[front] > lyst[front + 1]:
+                lyst[front], lyst[front + 1] = lyst[front + 1], lyst[front]
+            front += 1
+        rear -= 1
     return lyst
 
 
 def short_bubble_sort(lyst):
-    length = len(lyst) - 1
-    while length > 1:
+    rear = len(lyst) - 1
+    while rear > 1:
         swaped = False
-        item = 0
-        while item < length:
-            if lyst[item] > lyst[item + 1]:
-                lyst[item], lyst[item + 1] = lyst[item + 1], lyst[item]
+        front = 0
+        while front < rear:
+            if lyst[front] > lyst[front + 1]:
+                lyst[front], lyst[front + 1] = lyst[front + 1], lyst[front]
                 swaped = True
-            item += 1
+            front += 1
         if not swaped:
             return lyst
-        length -= 1
+        rear -= 1
     return lyst
 
 
