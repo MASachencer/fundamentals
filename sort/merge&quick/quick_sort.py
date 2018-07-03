@@ -1,19 +1,23 @@
 def partition(lyst, first, last):
-    mid = (first + last) // 2
-    left = first + 1
-    right = last
-    for idx in range(mid + 1, right):
-        if lyst[idx] < lyst[first]:
-            lyst[idx], lyst[left] = lyst[left], lyst[idx]
-            left += 1
-    lyst[first], lyst[mid] = lyst[mid], lyst[first]
-    return first
+    front = first + 1
+    rear = last
+    while True:
+        while front <= rear and lyst[front] <= lyst[first]:
+            front += 1
+        while front <= rear and lyst[rear] >= lyst[first]:
+            rear -= 1
+        if front > rear:
+            break
+        else:
+            lyst[front], lyst[rear] = lyst[rear], lyst[front]
+    lyst[first], lyst[rear] = lyst[rear], lyst[first]
+    return rear
 
 
 def quick_sort_helper(lyst, first, last):
     if first < last:
         pivot = partition(lyst, first, last)
-        quick_sort_helper(lyst, first, pivot - 1)
+        quick_sort_helper(lyst, first, pivot)
         quick_sort_helper(lyst, pivot + 1, last)
 
 
